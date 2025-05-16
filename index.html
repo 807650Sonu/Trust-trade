@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Trust Trade - Login/Signup</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+  <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+    <h2 class="text-2xl font-bold mb-4 text-center">Trust Trade Login</h2>
+    <div class="mb-4">
+      <input type="email" id="email" placeholder="Email" class="w-full px-4 py-2 border rounded" />
+    </div>
+    <div class="mb-4">
+      <input type="password" id="password" placeholder="Password" class="w-full px-4 py-2 border rounded" />
+    </div>
+    <div class="flex justify-between mb-4">
+      <button onclick="login()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Login</button>
+      <button onclick="signup()" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Signup</button>
+    </div>
+    <p id="message" class="text-center text-sm text-gray-600 mt-4"></p>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
