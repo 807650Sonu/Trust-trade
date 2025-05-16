@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Trust Trade - Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+</head>
+<body class="bg-gray-100 flex flex-col items-center justify-center min-h-screen">
+  <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md text-center">
+    <h2 class="text-3xl font-bold mb-4">Welcome to Trust Trade!</h2>
+    <p class="mb-6" id="userEmail">Loading...</p>
+    <button onclick="logout()" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Logout</button>
+  </div>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyAX2_kssbvVUWInYtvQSi3OCmYP2VUCwDc",
+      authDomain: "trust-trade-88f47.firebaseapp.com",
+      projectId: "trust-trade-88f47",
+      storageBucket: "trust-trade-88f47.appspot.com",
+      messagingSenderId: "75755431522",
+      appId: "1:75755431522:web:0bf625ca3a4543b409533b",
+      measurementId: "G-PRKF6HMHK9"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    // Show logged-in user email
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        document.getElementById("userEmail").textContent = "Logged in as: " + user.email;
+      } else {
+        // If not logged in, redirect to login page
+        window.location.href = "index.html";
+      }
+    });
+
+    // Logout function
+    function logout() {
+      auth.signOut().then(() => {
+        window.location.href = "index.html";
+      });
+    }
+  </script>
+</body>
+</html>
